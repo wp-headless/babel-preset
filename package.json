@@ -1,0 +1,43 @@
+{
+  "name": "@wp-headless/babel-preset",
+  "private": false,
+  "license": "MIT",
+  "version": "0.1.0",
+  "repository": "https://github.com/wp-headless/babel-preset",
+  "description": "sane babel preset",
+  "author": "Andrew McLagan <andrewmclagan@gmail.com>",
+  "keywords": [
+    "wordpress",
+    "babel",
+    "babel-preset",
+    "create-rect-app",
+    "nextjs",
+    "react"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "files": [
+    "README.md",
+    "index.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/wp-headless/babel-preset/issues"
+  },
+  "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "yarn build:cjs && yarn build:esm",
+    "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel --config-file ../../babel.config.js ./src --out-dir ./lib/cjs",
+    "build:esm": "NODE_ENV=production BABEL_ENV=esm babel --config-file ../../babel.config.js ./src --out-dir ./lib/esm"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@babel/runtime": "^7.7.2",
+    "core-js": "3"    
+  }
+}
